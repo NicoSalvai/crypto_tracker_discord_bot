@@ -50,7 +50,7 @@ client.on('ready', () => {
                         channel.name.split("-")[1] + "-" +
                         channel.name.split("-")[2] + "-" + 
                         parsedData[coins_params.from][coins_params.to].toString().replace(".", "-"))
-                    console.log(parsedData)
+                    console.log("updated channel: " + channel.name + " - with data: " + parsedData)
                 });
             
             }).on("error", (err) => {
@@ -93,7 +93,7 @@ function processChannelName(channel_name){
 }
 
 function findNameForAlias(alias){
-    let crypto_aliases = JSON.parse(process.env.COINS)
+    let crypto_aliases = JSON.parse(process.env.COINS).config;
     for (i = 0; i < crypto_aliases.length; i++) {
         for (j = 0; j < crypto_aliases[i].aliases.length; j++) {
             if(crypto_aliases[i].aliases[j] === alias)
