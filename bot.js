@@ -33,7 +33,7 @@ client.on('ready', () => {
                         channel.name.split("-")[1] + "-" +
                         channel.name.split("-")[2] + "-" + 
                         parsedData[coins_params.from][coins_params.to].toString().replace(".", "-"))
-                    console.log("updated channel: " + channel.name + " - with data: " + parsedData)
+                    console.log("updated channel: " + channel.name + " - with data: " + parsedData[coins_params.from][coins_params.to].toString() )
                 });
             
             }).on("error", (err) => {
