@@ -5,23 +5,6 @@ const client = new Discord.Client();
 const https = require('https');
 
 const coingecko_url = 'https://api.coingecko.com/api/v3/simple/price';
-/*[
-    {
-        "name":'cryptoblades',
-        "aliases":[
-            'skill',
-            'cryptoblades'
-        ]
-    },
-    {
-        "name":'usd',
-        "aliases":[
-            'usd',
-            'usdt'
-        ]
-    }
-]*/
-  
 
 
 client.on('ready', () => {
@@ -96,8 +79,9 @@ function findNameForAlias(alias){
     let crypto_aliases = JSON.parse(process.env.COINS).config;
     for (i = 0; i < crypto_aliases.length; i++) {
         for (j = 0; j < crypto_aliases[i].aliases.length; j++) {
-            if(crypto_aliases[i].aliases[j] === alias)
+            if(crypto_aliases[i].aliases[j] === alias){
                 return crypto_aliases[i].name;
+            }
         }
     }
 }
